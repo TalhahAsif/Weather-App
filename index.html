@@ -8,35 +8,26 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <div class="">
-      <form class="max-w-sm mx-auto">
-        <label
-          for="countries"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >Select an option</label
-        >
-        <select
-          id="countries"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        >
-          <option selected>Choose a country</option>
-          <option value="US">United States</option>
-          <option value="CA">Canada</option>
-          <option value="FR">France</option>
-          <option value="DE">Germany</option>
-        </select>
-      </form>
+    <div class="flex justify-center items-center">
+      <section class="flex flex-col justify-around items-center h-lvh border w-full">
+        <form class="max-w-sm mx-auto w-full">
+          <label
+            for="countries"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >Select an option</label
+          >
+          <select
+            id="cities"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            id="citiOption"
+            >
+            <option selected>Choose a City</option>
+          </select>
+        </form>
 
-      <section>
-        <div class="temperature">
-          <img
-            src="./resourses/pngegg.png"
-            alt=""
-            class=""
-            style="width: 400px; height: 400px;"
-          />
-        </div>
-        <h1>34<sup>o</sup></h1>
+        <section id="tempBox" class="flex flex-col justify-center items-center gap-y-6 p-5 rounded-lg bg-slate-100">
+          
+        </section>
       </section>
     </div>
   </body>
