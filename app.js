@@ -37,7 +37,7 @@ cities.addEventListener("change", function () {
   );
 });
 
-const changeWeather = (lat, long, showWeather) => {
+const changeWeather = (lat = 24.8607, long = 67.0011, showWeather) => {
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=c153479685c47f1b34a83591f3b1acbe`
   )
@@ -46,25 +46,41 @@ const changeWeather = (lat, long, showWeather) => {
 };
 
 const showWeather = (data) => {
+
+const haze = `https://www.flaticon.com/free-icons/fog`
+const sunny = `https://www.flaticon.com/free-icons/weather`
+const cloudy = `https://www.flaticon.com/free-icons/cloud`
+const heavyCloud = `https://www.flaticon.com/free-icons/cloudy`
+const littlebitCloudy = `https://www.flaticon.com/free-icons/cloudy`
+
+
+const currentWeather = Math.round(data.main.temp) - 273
+const max_temp = Math.round(data.main.temp_max) - 273
+const min_temp = Math.round(data.main.temp_min) - 273
+const feels_like = Math.round(data.main.feels_like) - 273
+
+console.log(currentWeather);
+
   console.log(data);
   tempBox.innerHTML = `<div class="temperature">
             <img
-              src="http://openweathermap.org/img/w/${data.weather[0].icon}.png"
+              src= "http://openweathermap.org/img/w/${data.weather[0].icon}.png"
               alt=""
               class=""
               style="width: 200px; height: 200px"
             />
           </div>
           <div>
-            <h1 class="text-6xl">${data.main.temp}<sup>o</sup></h1>
+              <p class="gap-y-3">${data.name}</p>
+            <h1 class="text-6xl">${currentWeather}<sup>o</sup></h1>
             <div class="flex gap-x-3 mt-3 text-lg font-medium">
-              <p>Min Temp: ${data.main.temp_min}<sup>o</sup></p>
-              <p>Max Temp:${data.main.temp_max}<sup>o</sup></p>
+              <p>Min Temp: ${min_temp}<sup>o</sup></p>
+              <p>Max Temp:${max_temp}<sup>o</sup></p>
             </div>
             <div class="mt-5">
-              <p>Feel like:${data.main.feels_like}<sup>o</sup></p>
+              <p>Feel like:${feels_like}<sup>o</sup></p>
               <p>humidity:${data.main.humidity}%</p>
-              <p>Wind: 5 mi/h</p>
+              <p>Wind: ${data.wind.speed} mi/h</p>
             </div>
           </div>`;
 };
